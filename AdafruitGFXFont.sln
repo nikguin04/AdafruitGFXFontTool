@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdafruitGFXFont", "AdafruitGFXFont\AdafruitGFXFont.csproj", "{F84EABA1-2AFB-48FA-92EE-EF1E53CA095E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F84EABA1-2AFB-48FA-92EE-EF1E53CA095E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84EABA1-2AFB-48FA-92EE-EF1E53CA095E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84EABA1-2AFB-48FA-92EE-EF1E53CA095E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84EABA1-2AFB-48FA-92EE-EF1E53CA095E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {00AECEB0-B392-4B71-951A-35B6BE22D3AE}
+	EndGlobalSection
+EndGlobal
