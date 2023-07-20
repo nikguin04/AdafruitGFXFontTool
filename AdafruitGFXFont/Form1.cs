@@ -17,6 +17,7 @@ namespace AdafruitGFXFont
 
         public class Glyph
         {
+            
             public int width;
             public int height;
             public int xAdvance;
@@ -24,6 +25,17 @@ namespace AdafruitGFXFont
             public int yOffset;
             //public List<byte> bitmapBits;
             public Dictionary<int, bool> pixelDict;
+
+            public Glyph(int _width, int _height, int _xAdvance, int _xOffset, int _yOffset, Dictionary<int, bool> _pixelDict)
+            {
+                width = _width;
+                height = _height;
+                xAdvance = _xAdvance;
+                xOffset = _xOffset;
+                yOffset = _yOffset;
+                pixelDict = _pixelDict;
+            }
+            public Glyph() { }
         }
 
         //public class 
@@ -135,7 +147,16 @@ namespace AdafruitGFXFont
             }
         }
 
-        
+        public void initializeGlyphsBlank(int minRange, int maxRange)
+        {
+            for (int i = minRange; i < maxRange; i++)
+            {
+                comboBox1.Items.Add(i.ToString() + " / 0x" + Convert.ToString(i, 16) + " = " + uft8CharFromInt(i));
+            }
+        }
+
+
+
 
         private void testbtn_Click(object sender, EventArgs e)
         {
@@ -338,6 +359,12 @@ namespace AdafruitGFXFont
         {
             byte[] bytearr = new byte[1] { (byte)num };
             return Encoding.UTF8.GetChars(bytearr)[0];
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ImportTool import_tool = new ImportTool();
+            import_tool.startImport(this);
         }
     }
 }
