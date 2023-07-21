@@ -47,64 +47,7 @@ namespace AdafruitGFXFont
             //flowLayoutPanel1.Controls.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            int width = Convert.ToInt32(textBox1.Text);
-            int height = Convert.ToInt32(textBox2.Text);
-
-            string bytes = richTextBox1.Text;
-            string[] byteArray = bytes.Split(',');
-
-            List<int> bytearr = new List<int>();
-            foreach (string b in byteArray) {
-                bytearr.Add(Convert.ToInt32(b.Trim(), 16));
-            }
-
-            int widthcounter = 0;
-            int heightcounter = 0;
-
-            string tolog = "";
-
-            int byteoffset = Convert.ToInt32(textBox3.Text, 16);
-            int tocount = width*height/8;
-
-            for (int a = byteoffset; a < byteoffset+tocount; a++)
-            {
-                int b = bytearr[a];
-                string bin = Convert.ToString(b, 2);
-
-                int bl = bin.Length;
-                for (int i = 0; i < 8-bl; i++)
-                {
-                    bin = "0" + bin;
-                }
-
-                foreach (char c in bin)
-                {
-                    if (c == '0')
-                    {
-                        tolog += "  ";
-                    } else if (c == '1')
-                    {
-                        tolog += "X";
-                    }
-                    widthcounter++;
-                    if (widthcounter == width)
-                    {
-                        widthcounter = 0;
-                        tolog += "\n";
-                        heightcounter++;
-                        if (heightcounter == height)
-                        {
-                            a = byteoffset + tocount;
-                            break;
-                        }
-                    }
-                }
-            }
-            MessageBox.Show(tolog);
-
-        }
+        
 
         public int minRange = 0;
         public int maxRange = 0;
@@ -125,6 +68,8 @@ namespace AdafruitGFXFont
                     label5.Text = "Choose Char (Height: " + Convert.ToString(charrange.fontHeight) + ")";
 
                     initializeGlyphs();
+                    button2.Enabled = false;
+                    button5.Enabled = false;
                 }
             }
         }
@@ -144,7 +89,10 @@ namespace AdafruitGFXFont
                 glyphDictionary[i].yOffset = 0;
 
                 comboBox1.Items.Add(i.ToString() + " / 0x" + Convert.ToString(i, 16) + " = " + uft8CharFromInt(i));
+                tryInitGlyphDict(i, glyphDictionary[i].width, glyphDictionary[i].height);
             }
+            comboBox1.SelectedIndex = 0;
+            button4.Enabled = true;
         }
 
         public void initializeGlyphsBlank(int minRange, int maxRange)
@@ -152,16 +100,12 @@ namespace AdafruitGFXFont
             for (int i = minRange; i < maxRange; i++)
             {
                 comboBox1.Items.Add(i.ToString() + " / 0x" + Convert.ToString(i, 16) + " = " + uft8CharFromInt(i));
+                
             }
+            comboBox1.SelectedIndex = 0;
+            button4.Enabled = true;
         }
 
-
-
-
-        private void testbtn_Click(object sender, EventArgs e)
-        {
-            //foreach 
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -177,14 +121,8 @@ namespace AdafruitGFXFont
             initLayoutPanel(glyphDictionary[index].width, glyphDictionary[index].height, index);
         }
 
-        private void initLayoutPanel(int width, int height, int gIndex)
+        public void tryInitGlyphDict(int gIndex, int width, int height)
         {
-            foreach (PictureBox pb in flowLayoutPanel1.Controls)
-            {
-                pb.Dispose();
-            }
-            flowLayoutPanel1.Controls.Clear();
-
             if (glyphDictionary[gIndex].pixelDict.Keys.Count == 0)
             {
                 for (int x = 0; x < width; x++)
@@ -196,7 +134,22 @@ namespace AdafruitGFXFont
                     }
                 }
             }
+        }
 
+        private void initLayoutPanel(int width, int height, int gIndex)
+        {
+
+            foreach (PictureBox pb in flowLayoutPanel1.Controls)
+            {
+                pb.Dispose();
+            }
+            flowLayoutPanel1.Controls.Clear();
+
+            tryInitGlyphDict(gIndex, width, height);
+            
+            int size = 40;
+            flowLayoutPanel1.Width = (size+6) * width + 4;
+            flowLayoutPanel1.Height = (size + 6) * height + 4;
             if (glyphDictionary[gIndex].pixelDict.Keys.Count == 0 || true)
             {
                 //int index = 0;
@@ -207,7 +160,7 @@ namespace AdafruitGFXFont
                     {
                         int index = x + y * width;
                         
-                        int size = 40;
+                        
 
                         //glyphDictionary[gIndex].pixelDict[index] = false;
                         PictureBox pictureBox = new PictureBox();
@@ -335,6 +288,7 @@ namespace AdafruitGFXFont
             //MessageBox.Show(glyphsOutput);
             //MessageBox.Show(GFXfont);
 
+            
             var fbd = new FolderBrowserDialog();
             DialogResult result = fbd.ShowDialog();
             
@@ -365,6 +319,27 @@ namespace AdafruitGFXFont
         {
             ImportTool import_tool = new ImportTool();
             import_tool.startImport(this);
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            using (CharDisplayTest cdt = new CharDisplayTest())
+            {
+                if (cdt.ShowDialog() == DialogResult.OK)
+                {
+                    // logic?
+                }
+            }
         }
     }
 }

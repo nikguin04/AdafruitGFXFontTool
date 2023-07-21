@@ -39,9 +39,9 @@ namespace AdafruitGFXFont
                     // Get bitmap data
                     string rawBitmapdata = new Regex(@"uint8_t " + gfxFontBitmapName + @"\[\][^\{]*{(.+?)};", RegexOptions.Singleline).Matches(fullImportRead)[0].Groups[1].Value;
                     string[] Bitmapdata = rawBitmapdata.Split(',');
-                    // fix last null pointer
+                    /*// fix last null pointer
                     if (Bitmapdata[Bitmapdata.Length-1].Trim() == "")
-                        Bitmapdata[Bitmapdata.Length-1] = "0x0";
+                        Bitmapdata[Bitmapdata.Length-1] = "0x0";*/
 
                     // Get glyphs data
                     string rawGlyphs = new Regex(@"GFXglyph " + gfxFontGlyphName + @"\[\][^\{]*{(.+?)};", RegexOptions.Singleline).Matches(fullImportRead)[0].Groups[1].Value;
@@ -67,13 +67,13 @@ namespace AdafruitGFXFont
                         int pixelDictLength = form1Control.glyphDictionary[dictionaryIndex].width * form1Control.glyphDictionary[dictionaryIndex].height;
                         List<BitArray> bitmapParsedList = new List<BitArray>();
                         // Parse all used bitmaps into array
-                        for (int a = 0; a < pixelDictLength / 4 + 1; a++)
+                        for (int a = 0; a < pixelDictLength / 8 + 1; a++)
                         {
                             bitmapParsedList.Add(new BitArray(new int[] { int.Parse(Bitmapdata[glyphBitmapStartIndex + a].Trim().Substring(2), System.Globalization.NumberStyles.HexNumber) }));
                         }
                         for (int i = 0; i < pixelDictLength; i++)
                         {
-                            form1Control.glyphDictionary[dictionaryIndex].pixelDict.Add(i, bitmapParsedList[i/4][i%4]);                        
+                            form1Control.glyphDictionary[dictionaryIndex].pixelDict.Add(i, bitmapParsedList[i/8][7-i%8]);                        
                         }
                         Console.Write("");
 
@@ -96,14 +96,18 @@ namespace AdafruitGFXFont
 
                         
                     }
-
-                form1Control.initializeGlyphsBlank(gfxFontStartIndex, gfxFontEndIndex);
+       
 
                 form1Control.minRange = gfxFontStartIndex;
                 form1Control.maxRange = gfxFontEndIndex;
                 form1Control.fontHeight = gfxFontHeight;
                 form1Control.fontName = gfxFontName;
-                MessageBox.Show("done?");
+                form1Control.initializeGlyphsBlank(gfxFontStartIndex, gfxFontEndIndex);
+
+                form1Control.Text = "Adafruit GFX Font Designer (" + form1Control.fontName + ")";
+                form1Control.label5.Text = "Choose Char (Height: " + Convert.ToString(form1Control.fontHeight) + ")";
+                form1Control.button2.Enabled = false;
+                form1Control.button5.Enabled = false;
 
                 /*} catch (Exception e)
                 {
