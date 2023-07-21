@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -14,15 +15,15 @@ namespace AdafruitGFXFont
     {
         public void startImport(Form1 form1Control)
         {
-            var fd = new OpenFileDialog();
-            DialogResult result = fd.ShowDialog();
+            CommonOpenFileDialog fbd = new CommonOpenFileDialog();
+            CommonFileDialogResult result = fbd.ShowDialog();
 
-            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fd.FileName))
+            if (result == CommonFileDialogResult.Ok && !string.IsNullOrWhiteSpace(fbd.FileName))
             {
                 /*try
                 {*/
                     // Read input file
-                    StreamReader sr = new StreamReader(fd.FileName);
+                    StreamReader sr = new StreamReader(fbd.FileName);
                     string fullImportRead = sr.ReadToEnd();
                     sr.Close();
 

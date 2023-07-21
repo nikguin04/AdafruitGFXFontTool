@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace AdafruitGFXFont
 {
@@ -288,16 +289,16 @@ namespace AdafruitGFXFont
             //MessageBox.Show(glyphsOutput);
             //MessageBox.Show(GFXfont);
 
+            CommonOpenFileDialog fbd = new CommonOpenFileDialog();
+            fbd.IsFolderPicker = true;
+            CommonFileDialogResult result = fbd.ShowDialog();
             
-            var fbd = new FolderBrowserDialog();
-            DialogResult result = fbd.ShowDialog();
-            
-            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            if (result == CommonFileDialogResult.Ok && !string.IsNullOrWhiteSpace(fbd.FileName))
             {
                 //string[] files = Directory.GetFiles(fbd.SelectedPath);
                 //System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
 
-                StreamWriter sw = new StreamWriter(fbd.SelectedPath + "\\" + fontName + "GFXFONT.h");
+                StreamWriter sw = new StreamWriter(fbd.FileName + "\\" + fontName + "GFXFONT.h");
                 sw.WriteLine("// GFX font created with Niklas Jensen's GFX font creation tool");
                 sw.WriteLine(bitmapOutput);
                 sw.WriteLine(glyphsOutput);

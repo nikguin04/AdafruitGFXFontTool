@@ -1,8 +1,8 @@
 // GFX font created with Niklas Jensen's GFX font creation tool
 const uint8_t CustomFontBitmaps[] PROGMEM = {
-0x0,0x0,
+0x93,0x24,
 0x84,0x1,
-0x0,0x0,
+0xEA,0x80,
 };
 
 const GFXglyph CustomFontGlyphs[] PROGMEM = {
