@@ -1,7 +1,8 @@
 # AdafruitGFXFontTool
+![](https://img.shields.io/badge/.NET%20Framework-4.8-blue)
 ### A custom font creator for microcontrollers using the Adafruit GFX font format
 
-![Running project example](https://raw.githubusercontent.com/nikguin04/AdafruitGFXFontTool/readme_files/build_example1.png)<br>
+![Running project example](/readme_files/build_example1.png)<br>
 
 How to install or build, and run the project
 ---------------
@@ -30,19 +31,19 @@ How to install or build, and run the project
 Using the project
 ---------------
 
-![Initial project screen](https://raw.githubusercontent.com/nikguin04/AdafruitGFXFontTool/readme_files/usecase_example1.png)<br>
+![Initial project screen](/readme_files/usecase_example1.png)<br>
 You have two options when getting started with the project. Either Creating your own custom font with **Set Font Settings** or importing a font with **Import Font**
 
 When importing a custom font, all font properties: character range, name and height, will automatically be imported aswell
 
-![Initializing a font](https://raw.githubusercontent.com/nikguin04/AdafruitGFXFontTool/readme_files/usecase_example2.png)<br>
+![Initializing a font](/readme_files/usecase_example2.png)<br>
 When creating a new font, you will need to choose these variables on your own
  - The font name can be any valid variable name in C/C++ [Rules for Naming Variable](https://www.programtopia.net/cplusplus/docs/variables#rules-naming)
  - Font height needs to be a number (0-255) as uint8_t. Note: font height is only used to determine new line distance (aka. yAdvance)
  - Range minimum and maximum determines the range of [UTF-8 characters](https://www.utf8-chartable.de/) to be included in the font. Range can be input as either a number (0-65535) or hex number (0x00-0xfFF) as uint16_t.
  - When all variables are entered as desired, press **Submit**
 
-![Creating and modifying characters](https://raw.githubusercontent.com/nikguin04/AdafruitGFXFontTool/readme_files/usecase_example3.png)<br>
+![Creating and modifying characters](/readme_files/usecase_example3.png)<br>
 Under the "Choose Char" label is a dropdown menu with all available characters in font range, listed as (int / hex = char) format. Pick one to get started.
 
 After choosing a character, you can change the properties for the character:
