@@ -62,8 +62,34 @@ This will output a single file under the folder Called "{fontname}GFXFONT.h"<br>
 When this header file is imported into a project, the GFXfont element can be referred to as the font name set at the start
 
 
+Resources 
+---------------
+ - [Adafruit GFX Graphics library](https://learn.adafruit.com/adafruit-gfx-graphics-library/overview)<br>
+ - [LED Matrix library i used for this font: ESP32-HUB75-MatrixPanel](https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA)
 
 
 
 
+MIT License
+---------------
+
+Copyright (c) 2023 Niklas Jensen (https://github.com/nikguin04)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
