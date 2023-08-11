@@ -1,5 +1,5 @@
 # AdafruitGFXFontTool
-![](https://img.shields.io/badge/.NET%20Framework-4.8-blue)
+![](https://img.shields.io/badge/.NET%20Framework-4.8-blue) ![](https://img.shields.io/github/contributors/nikguin04/AdafruitGFXFontTool) ![](https://img.shields.io/github/v/release/nikguin04/AdafruitGFXFontTool?include_prereleases&label=pre-release&logo=github) ![](https://img.shields.io/github/issues/nikguin04/AdafruitGFXFontTool) ![](https://img.shields.io/github/languages/top/nikguin04/AdafruitGFXFontTool) <br>
 ### A custom font creator for microcontrollers using the Adafruit GFX font format
 
 ![Running project example](/readme_files/build_example1.png)<br>
