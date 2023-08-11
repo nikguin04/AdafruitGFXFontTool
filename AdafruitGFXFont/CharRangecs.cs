@@ -32,7 +32,7 @@ namespace AdafruitGFXFont
             //fontHeight = Convert.ToInt32(textBox3.Text);
             if (minRange == 0 || maxRange == 0 || fontHeight == 0 || fontName == "")
             {
-                MessageBox.Show("Inputs are not valid");
+                MessageBox.Show("Inputs are not valid\nNo fields can be left blank or set to 0");
                 return;
                 
             }
@@ -54,9 +54,11 @@ namespace AdafruitGFXFont
                 char _char = Form1.uft8CharFromInt(num);
                 label4.Text = num.ToString() + " / 0x" + Convert.ToString(num, 16) + " = " + _char;
                 minRange = num;
+                label1.ForeColor = Color.Black;
 
             } catch (Exception exc)
             {
+                label1.ForeColor = Color.Red;
                 label4.Text = "Not A Number";
                 minRange = 0;
             }
@@ -81,10 +83,12 @@ namespace AdafruitGFXFont
                 char _char = Form1.uft8CharFromInt(num);
                 label5.Text = num.ToString() + " / 0x" + Convert.ToString(num, 16) + " = " + _char;
                 maxRange = num;
+                label2.ForeColor = Color.Black;
 
             }
             catch (Exception exc)
             {
+                label2.ForeColor = Color.Red;
                 label5.Text = "Not A Number";
                 maxRange = 0;
             }
@@ -95,8 +99,10 @@ namespace AdafruitGFXFont
             try
             {
                 fontHeight = Convert.ToInt32(textBox3.Text);
+                label3.ForeColor = Color.Black;
             } catch (Exception exc)
             {
+                label3.ForeColor = Color.Red;
                 fontHeight = 0;
             }
         }

@@ -158,7 +158,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Name = "CharRangecs";
-            this.Text = "CharRangecs 0x21 - 0x5D";
+            this.Text = "GFX Font Range";
             this.ResumeLayout(false);
             this.PerformLayout();
 

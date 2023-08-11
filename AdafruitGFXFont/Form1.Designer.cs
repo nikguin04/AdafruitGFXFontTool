@@ -45,7 +45,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -62,9 +61,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(12, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 13);
+            this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Choose Char (Height: ?)";
+            this.label5.Text = "Choose Char";
             // 
             // button2
             // 
@@ -78,7 +77,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(12, 415);
+            this.button3.Location = new System.Drawing.Point(12, 387);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 12;
@@ -92,7 +91,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(52, 20);
             this.textBox4.TabIndex = 15;
-            this.textBox4.Text = "3";
+            this.textBox4.Text = "0";
             // 
             // label6
             // 
@@ -118,7 +117,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(52, 20);
             this.textBox5.TabIndex = 17;
-            this.textBox5.Text = "5";
+            this.textBox5.Text = "0";
             // 
             // label8
             // 
@@ -135,7 +134,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(52, 20);
             this.textBox6.TabIndex = 19;
-            this.textBox6.Text = "4";
+            this.textBox6.Text = "0";
             // 
             // label9
             // 
@@ -174,22 +173,21 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(336, 10);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(1);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(345, 10);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 400);
             this.flowLayoutPanel1.TabIndex = 26;
-            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // button4
             // 
             this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(12, 116);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 23);
+            this.button4.Size = new System.Drawing.Size(141, 23);
             this.button4.TabIndex = 27;
-            this.button4.Text = "Set Width + Height";
+            this.button4.Text = "Apply new char options";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -203,24 +201,13 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(93, 415);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(90, 23);
-            this.button6.TabIndex = 30;
-            this.button6.Text = "Test hex char";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(750, 450);
-            this.Controls.Add(this.button6);
+            this.ClientSize = new System.Drawing.Size(758, 418);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -261,7 +248,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button6;
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button button5;
